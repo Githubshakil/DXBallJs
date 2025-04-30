@@ -41,5 +41,20 @@ let gameOver = false;
 
 for (let c = 0; c < brickColumnCount; c++){
     bricks[c] = [];
-    
+    for (let r = 0 ; r < brickRowCount; r++){
+        bricks[c][r] = { x: 0, y: 0, status: 1};
+
+    }
+}
+
+function keyUpHandler(e) {
+    if (e.key === 'Right' || e.key === 'ArrowRight') rightPressed = false;
+    if (e.key === 'Left' ||  e.key  === 'ArrowLeft') leftPressed = false;
+}
+
+function mouseMoveHandler(e) {
+    const relativeX = e.clintX - canvas.offsetLeft;
+    if (relativeX > 0 && relativeX < canvas.width){
+        paddle.x = relativeX - paddle.width / 2;
+    }
 }
