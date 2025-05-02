@@ -175,5 +175,25 @@ function movePaddle() {
     }
 }
 
+function resetGame() {
+    score = 0;
+    lives = 3;
+    scoreDisplay.textContent = Score: ${score};
+    livesDisplay.textContent = Lives: ${lives};
+    gameOver = false;
+    gameOverDisplay.style.display = 'none';
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height - 50;
+    ball.dx = 4;
+    ball.dy = -4;
+    paddle.x = canvas.width / 2 - paddle.width / 2;
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
+            bricks[c][r].status = 1;
+        }
+    }
+}
+
+
 
 
