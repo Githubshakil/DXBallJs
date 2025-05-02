@@ -26,8 +26,8 @@ let bricks = [];
 const brickRowCount = 5;
 const brickColumnCount = 9;
 const brickWidth =  75;
-const brickHight = 20;
-const brickpadding = 10;
+const brickHeight = 20;
+const brickPadding = 10;
 const brickOffsetTop = 30;
 const brickOffsetLeft = 35;
 
@@ -69,7 +69,7 @@ function keyUpHandler(e) {
 }
 
 function mouseMoveHandler(e) {
-    const relativeX = e.clintX - canvas.offsetLeft;
+    const relativeX = e.clientX - canvas.offsetLeft;
     if (relativeX > 0 && relativeX < canvas.width){
         paddle.x = relativeX - paddle.width / 2;
     }
