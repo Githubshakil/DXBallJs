@@ -194,6 +194,20 @@ function resetGame() {
     }
 }
 
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBricks();
+    drawBall();
+    drawPaddle();
+    collisionDetection();
+    moveBall();
+    movePaddle();
+    if (!gameOver) requestAnimationFrame(draw);
+}
+
+draw();
+
+
 
 
 
