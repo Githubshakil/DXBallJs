@@ -47,6 +47,22 @@ for (let c = 0; c < brickColumnCount; c++){
     }
 }
 
+
+// Event listeners
+document.addEventListener('keydown', keyDownHandler);
+document.addEventListener('keyup', keyUpHandler);
+document.addEventListener('mousemove', mouseMoveHandler);
+
+
+function keyDownHandler(e) {
+    if (e.key === 'Right' || e.key === 'ArrowRight') rightPressed = true;
+    if (e.key === 'Left' || e.key === 'ArrowLeft') leftPressed = true;
+    if (e.key === 'r' || e.key === 'R') {
+        if (gameOver) resetGame();
+    }
+}
+
+
 function keyUpHandler(e) {
     if (e.key === 'Right' || e.key === 'ArrowRight') rightPressed = false;
     if (e.key === 'Left' ||  e.key  === 'ArrowLeft') leftPressed = false;
