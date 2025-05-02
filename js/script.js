@@ -166,4 +166,14 @@ function moveBall() {
     }
 }
 
+function movePaddle() {
+    if (rightPressed && paddle.x < canvas.width - paddle.width) {
+        paddle.x += paddle.speed;
+    }
+    if (leftPressed && paddle.x > 0) {
+        paddle.x -= paddle.speed;
+    }
+}
+
+
 
