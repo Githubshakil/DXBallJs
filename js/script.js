@@ -104,3 +104,12 @@ function drawBall() {
     ctx.closePath();
 }
 
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddle.x, paddle.y, paddle.width, paddle.height);
+    ctx.fillStyle = '#0f0';
+    ctx.fill();
+    ctx.closePath();
+}
+
+
