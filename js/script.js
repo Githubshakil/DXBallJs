@@ -85,7 +85,7 @@ function collisionDetection() {
                     ball.dy = -ball.dy;
                     b.status = 0;
                     score += 10;
-                    scoreDisplay.textContent = Score: ${score};
+                    scoreDisplay.textContent = `Score: ${score}`;
                     if (score === brickRowCount * brickColumnCount * 10) {
                         alert('You Win!');
                         resetGame();
@@ -146,7 +146,7 @@ function moveBall() {
     }
     if (ball.y + ball.radius > canvas.height) {
         lives--;
-        livesDisplay.textContent = Lives: ${lives};
+        livesDisplay.textContent = `Lives: ${lives}`;
         if (lives === 0) {
             gameOver = true;
             gameOverDisplay.style.display = 'block';
@@ -178,8 +178,8 @@ function movePaddle() {
 function resetGame() {
     score = 0;
     lives = 3;
-    scoreDisplay.textContent = Score: ${score};
-    livesDisplay.textContent = Lives: ${lives};
+    scoreDisplay.textContent = `Score: ${score}`;
+    livesDisplay.textContent = `Lives: ${lives}`;
     gameOver = false;
     gameOverDisplay.style.display = 'none';
     ball.x = canvas.width / 2;
