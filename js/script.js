@@ -74,3 +74,24 @@ function mouseMoveHandler(e) {
         paddle.x = relativeX - paddle.width / 2;
     }
 }
+
+function collisionDetection() {
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
+            const b = bricks[c][r];
+            if (b.status === 1) {
+                if (ball.x > b.x && ball.x < b.x + brickWidth &&
+                    ball.y > b.y && ball.y < b.y + brickHeight) {
+                    ball.dy = -ball.dy;
+                    b.status = 0;
+                    score += 10;
+                    scoreDisplay.textContent = Score: ${score};
+                    if (score === brickRowCount * brickColumnCount * 10) {
+                        alert('You Win!');
+                        resetGame();
+                    }
+                }
+            }
+        }
+    }
+}
