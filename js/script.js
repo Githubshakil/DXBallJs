@@ -131,3 +131,39 @@ function drawBricks() {
 }
 
 
+function moveBall() {
+    if (gameOver) return;
+
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    // Wall collisions
+    if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+        ball.dx = -ball.dx;
+    }
+    if (ball.y - ball.radius < 0) {
+        ball.dy = -ball.dy;
+    }
+    if (ball.y + ball.radius > canvas.height) {
+        lives--;
+        livesDisplay.textContent = Lives: ${lives};
+        if (lives === 0) {
+            gameOver = true;
+            gameOverDisplay.style.display = 'block';
+        } else {
+            ball.x = canvas.width / 2;
+            ball.y = canvas.height - 50;
+            ball.dx = 4;
+            ball.dy = -4;
+            paddle.x = canvas.width / 2 - paddle.width / 2;
+        }
+    }
+
+    // Paddle collision
+    if (ball.y + ball.radius > paddle.y &&
+        ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
+        ball.dy = -ball.dy;
+    }
+}
+
+
