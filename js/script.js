@@ -164,6 +164,7 @@ function moveBall() {
         ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
         ball.dy = -ball.dy;
     }
+    if (!gameOver) setTimeout(() => requestAnimationFrame(draw), 1000 / 400); // Adjust the denominator for game speed
 }
 
 function movePaddle() {
@@ -202,7 +203,6 @@ function draw() {
     collisionDetection();
     moveBall();
     movePaddle();
-    if (!gameOver) requestAnimationFrame(draw);
 }
 
 draw();
